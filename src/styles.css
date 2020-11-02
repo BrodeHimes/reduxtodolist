@@ -1,0 +1,44 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.todoContainer {
+  margin: 0 auto;
+  padding: 0;
+  width: 80%;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.todo {
+  border-bottom: 1px solid black;
+  list-style: none;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: grey;
+}
+
+.todo:last-of-type {
+  border: none;
+}
+
+.todo:nth-of-type(even) {
+  background-color: #eaeaea;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+}
+
+button {
+  margin: 8px;
+}
