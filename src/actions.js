@@ -12,3 +12,11 @@
  *  }
  * }
  */
+
+// import { v4 as uuid } from "uuid";
+export const todoList = (todo) => ({
+    type: "TODOLIST",
+    id:1,
+    text: todo
+  });
+  
