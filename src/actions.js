@@ -13,10 +13,15 @@
  * }
  */
 
-// import { v4 as uuid } from "uuid";
-export const todoList = (todo) => ({
+import { v4 as uuid } from "uuid";
+export const todoList = (inputText) => ({
     type: "TODOLIST",
-    id:1,
-    text: todo
+    id: uuid(),
+    text: inputText
   });
   
+export const completedList = (item) => ({
+  type:"COMPLETED",
+  id: item.id,
+  text: item.text,
+})

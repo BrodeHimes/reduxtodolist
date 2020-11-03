@@ -4,23 +4,32 @@
  * Also remember to update your initialState with any defaults you want to include!
  */
 
-const initialState = {
-    todos: [],
+const initialState = { 
+    todos:[],
+    completed:[
+    ]
   };
   
-  const reducer = (state = initialState, action) => {
+ const reducer = (state = initialState, action) => {
     switch (action.type) {
       case "TODOLIST":
         return {
             ...state,
-           todos: [...state.todos, action.text]
+          todos: [...state.todos, {id: action.id, text: action.text}]
         };
-      
+      case "COMPLETED":
+        return {
+          ...state,
+          todos: state.todos.filter((todo) => todo.id !== action.id),
+          completed:[...state.completed, {id: action.id, text: action.text}]
+        }      
+    
       default:
         return state;
     }
   };
   
+
   export default reducer;
 
 //   case "COMPLETEDLIST":

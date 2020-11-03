@@ -2,7 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider , useSelector, useDispatch } from "react-redux";
 
-import { todoList } from "./actions.js";
+import { todoList, completedList } from "./actions.js";
 //import { v4 as uuid } from "uuid";
 import reducer from "./reducer";
 import "./styles.css";
@@ -32,11 +32,23 @@ function Main() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(todoList(inputText));
-    // const newTodos = [...todos, todo];
-    // setTodos(newTodos);
     setInputText("");
     debugger;
   };
+
+  const todos = useSelector(state=>state.todos);
+  const completedTodos = useSelector(state=>state.completed);
+
+
+  // const completeTodo = (id) => {
+  //   const completed = todos.find((todo) => todo.id === id);
+  //   const newTodos = todos.filter((todo) => todo.id !== id);
+  //   setTodos(newTodos);
+  //   setCompletedTodos([...completedTodos, completed]);
+  // };
+  
+
+
 
    // const todo = {
     //   id: uuid(),
@@ -93,22 +105,34 @@ function Main() {
         <section>
           <h2>Current Things To Do!</h2>
           <ul className="todoContainer">            
-              <TodoItem className="todo">
+          {todos.map((todo) => (
+              <section className="todo">
+               <li>{todo.text}</li>
                 <div>
-                  <button  >Delete</button>
-                  <button >
-                    Complete
-                  </button>
+                  <button>Delete</button>
+                  <button onClick={() => dispatch(completedList(todo))}>Complete</button>
                 </div>
-              </TodoItem>
+              </section>
+          ))
+          }
           </ul>
+          <section>
+          <h2>Things We've Completed!!!</h2>
+          <ul className="todoContainer">
+            {completedTodos.map((todo) => (
+              <section className="todo completed">
+                {todo.text}
+                <button >Undo</button>
+              </section>
+            ))}
+          </ul>
+        </section>
         </section>
     </div>
   );
 }
 
-function TodoItem() {
-  const todo = useSelector(state=>state.text);
-   return <li>{todo}</li>;
-}
+// function TodoItem() {
+//    return <li>{todo}</li>;
+// }
 
