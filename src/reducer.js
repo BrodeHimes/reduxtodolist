@@ -23,7 +23,11 @@ const initialState = {
           todos: state.todos.filter((todo) => todo.id !== action.id),
           completed:[...state.completed, {id: action.id, text: action.text}]
         }      
-    
+      case "DELETE":
+         return{
+          ...state,
+          todos: state.todos.filter((todo) => todo.id !== action.id),
+         }
       default:
         return state;
     }

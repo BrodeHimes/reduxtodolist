@@ -2,7 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider , useSelector, useDispatch } from "react-redux";
 
-import { todoList, completedList } from "./actions.js";
+import { todoList, completedList , deleteItem } from "./actions.js";
 //import { v4 as uuid } from "uuid";
 import reducer from "./reducer";
 import "./styles.css";
@@ -109,7 +109,7 @@ function Main() {
               <section className="todo">
                <li>{todo.text}</li>
                 <div>
-                  <button>Delete</button>
+                  <button onClick={() => dispatch(deleteItem(todo))}>Delete</button>
                   <button onClick={() => dispatch(completedList(todo))}>Complete</button>
                 </div>
               </section>

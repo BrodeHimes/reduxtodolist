@@ -24,4 +24,10 @@ export const completedList = (item) => ({
   type:"COMPLETED",
   id: item.id,
   text: item.text,
-})
+});
+
+export const deleteItem = (item) => ({
+  type:"DELETE",
+  id: item.id,
+  text: item.text,
+});
