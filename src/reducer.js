@@ -22,13 +22,19 @@ const initialState = {
           ...state,
           todos: state.todos.filter((todo) => todo.id !== action.id),
           completed:[...state.completed, {id: action.id, text: action.text}]
-        }      
+        };    
       case "DELETE":
          return{
           ...state,
           todos: state.todos.filter((todo) => todo.id !== action.id),
-         }
-      default:
+         };
+      case "UNDO":
+         return{
+          ...state,
+          todos: [...state.todos, {id: action.id, text: action.text}],
+          completed: state.completed.filter((todo) => todo.id !== action.id)
+         };
+        default:
         return state;
     }
   };
@@ -41,3 +47,8 @@ const initialState = {
 //           ...state,
 //           completedTodo: [action.text]
 //         };
+
+
+//       // completed : state.completed.filter((todo) => todo.id !== action.id)
+      //       //make this work
+      //     };

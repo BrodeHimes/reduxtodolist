@@ -31,3 +31,9 @@ export const deleteItem = (item) => ({
   id: item.id,
   text: item.text,
 });
+
+export const undoItem = (item) => ({
+  type:"UNDO",
+  id: item.id,
+  text: item.text,
+});

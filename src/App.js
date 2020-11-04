@@ -2,7 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider , useSelector, useDispatch } from "react-redux";
 
-import { todoList, completedList , deleteItem } from "./actions.js";
+import { todoList, completedList , deleteItem , undoItem} from "./actions.js";
 //import { v4 as uuid } from "uuid";
 import reducer from "./reducer";
 import "./styles.css";
@@ -122,7 +122,7 @@ function Main() {
             {completedTodos.map((todo) => (
               <section className="todo completed">
                 {todo.text}
-                <button >Undo</button>
+                <button onClick={()=>dispatch(undoItem(todo))}>Undo</button>
               </section>
             ))}
           </ul>
