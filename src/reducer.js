@@ -6,8 +6,7 @@
 
 const initialState = { 
     todos:[],
-    completed:[
-    ]
+    completed:[]
   };
   
  const reducer = (state = initialState, action) => {
@@ -44,17 +43,4 @@ const initialState = {
     }
       
   };
-  
-
-  export default reducer;
-
-//   case "COMPLETEDLIST":
-//         return {
-//           ...state,
-//           completedTodo: [action.text]
-//         };
-
-
-//       // completed : state.completed.filter((todo) => todo.id !== action.id)
-      //       //make this work
-      //     };
+export default reducer;
