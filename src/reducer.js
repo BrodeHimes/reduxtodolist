@@ -34,9 +34,15 @@ const initialState = {
           todos: [...state.todos, {id: action.id, text: action.text}],
           completed: state.completed.filter((todo) => todo.id !== action.id)
          };
+      case "CLEARALL":
+        return{
+          todos: [],
+          completed: [],
+        };
         default:
         return state;
     }
+      
   };
   
 

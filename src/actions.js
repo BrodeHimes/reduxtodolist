@@ -37,3 +37,7 @@ export const undoItem = (item) => ({
   id: item.id,
   text: item.text,
 });
+
+export const clearAll = () => ({
+  type:"CLEARALL",
+});

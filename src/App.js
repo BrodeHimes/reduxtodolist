@@ -2,7 +2,7 @@ import React from "react";
 import { createStore } from "redux";
 import { Provider , useSelector, useDispatch } from "react-redux";
 
-import { todoList, completedList , deleteItem , undoItem} from "./actions.js";
+import { todoList, completedList , deleteItem , undoItem , clearAll} from "./actions.js";
 //import { v4 as uuid } from "uuid";
 import reducer from "./reducer";
 import "./styles.css";
@@ -100,7 +100,7 @@ function Main() {
         <button>Do It!!</button>
       </form>
 
-        <button >Clear All</button>
+        <button onClick={()=> dispatch(clearAll())}>Clear All</button>
 
         <section>
           <h2>Current Things To Do!</h2>
