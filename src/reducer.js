@@ -1,9 +1,3 @@
-/**
- * This is your reducer! Please add in your "action cases" and update your state appropriately.
- * Remember, never override your old state, only use it in calculating your new state.
- * Also remember to update your initialState with any defaults you want to include!
- */
-
 const initialState = { 
     todos:[],
     completed:[]

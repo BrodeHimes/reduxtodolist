@@ -4,7 +4,6 @@ import { Provider , useSelector, useDispatch } from "react-redux";
 import { todoList, completedList , deleteItem , undoItem , clearAll} from "./actions.js";
 import reducer from "./reducer";
 import "./styles.css";
- 
 
 const store = createStore(reducer);
 
@@ -14,7 +13,7 @@ export default function App() {
       <Main />
     </Provider>
   );
-}
+};
 
 function Main() {
   const [inputText, setInputText] = React.useState("");
@@ -34,7 +33,6 @@ function Main() {
   const todos = useSelector(state=>state.todos);
   const completedTodos = useSelector(state=>state.completed);
  
-
   return (
     <div className="App">
       <h1>Cohort TODO App</h1>
@@ -85,8 +83,8 @@ function Main() {
        )}
     </div>
   );
-}
+};
 
 function TodoItem(props) {
   return <li className={props.className}>{props.children}</li>;
-}
+};
