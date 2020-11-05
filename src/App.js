@@ -56,13 +56,13 @@ function Main() {
           <h2>Current Things To Do!</h2>
           <ul className="todoContainer">            
           {todos.map((todo) => (
-              <section className="todo">
-               <li>{todo.text}</li>
+              <TodoItem className="todo">
+               {todo.text}
                 <div>
                   <button onClick={() => dispatch(deleteItem(todo))}>Delete</button>
                   <button onClick={() => dispatch(completedList(todo))}>Complete</button>
                 </div>
-              </section>
+              </TodoItem>
                 )
               )
             }
@@ -75,10 +75,10 @@ function Main() {
           <h2>Things We've Completed!!!</h2>
           <ul className="todoContainer">
             {completedTodos.map((todo) => (
-              <section className="todo completed">
+              <TodoItem className="todo completed">
                 {todo.text}
                 <button onClick={()=>dispatch(undoItem(todo))}>Undo</button>
-              </section>
+              </TodoItem>
             ))}
           </ul>
         </section>
@@ -87,3 +87,6 @@ function Main() {
   );
 }
 
+function TodoItem(props) {
+  return <li className={props.className}>{props.children}</li>;
+}
